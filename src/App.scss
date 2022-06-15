@@ -1,3 +1,15 @@
-// .App {
-  
-// }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+  background-color: rgb(185, 176, 138);
+  height: 700px;
+  .nav{
+    width: 100%;
+    top: 0;
+    padding: 10px;
+  }
+}
