@@ -1,20 +1,22 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
 import { FooterComp } from './features/Footer/FooterSlice';
 import { NavComp } from './features/Navbar/NavSlice';
+import { chengeSlide, next, prev, selectSlide, Slider } from './features/Slider/Slider';
 
 function App() {
-
+  const slide =  useSelector(selectSlide);
   const dispatch = useDispatch();
 
   return (
     <div className="App">
       <div className='nav'> <NavComp /> </div>
-
-      <div>
-      The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,vThe href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link,
-      </div>
-      
+      <Slider slide={slide} 
+        change={(val) => {dispatch(chengeSlide(val))}} 
+        next={(nextSlide) => {dispatch(next(nextSlide))}} 
+        prev={(prevSlide) => dispatch(prev(prevSlide))}
+      />
+    
       <div className='footer'> <FooterComp/> </div>
     </div>
   );
