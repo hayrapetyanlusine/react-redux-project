@@ -1,10 +1,12 @@
 import React from 'react';
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Down } from '../Svg';
 import { DropDown } from './DropDown';
+import { Up } from '../Svg'
 import './Nav.scss';
 
 export function NavSliceItem({ulRef, initialNav}) {
+    const [down, setDown] = useState(false);
     const dropMenuRef = useRef();
 
     return (
@@ -19,10 +21,11 @@ export function NavSliceItem({ulRef, initialNav}) {
                         return(
                             <li id='drop' className='menu-item' key={elem.id} ref={dropMenuRef} onClick={() => {
                                 dropMenuRef.current.classList.toggle("down");
+                                setDown(!down);
                             }}>
                                 <a href='#' className='item-href'>
                                     {elem.name} 
-                                    <span><Down/></span>
+                                    <span>{down ? <Up/> : <Down/>}</span>
                                 </a>
                                 <DropDown initialNav={initialNav}/>
                             </li>

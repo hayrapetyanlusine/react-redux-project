@@ -54,6 +54,7 @@ export function WindowUp() {
 export function Up() {
   return (
     <svg
+      className='nav-arrow-down'
       xmlns="http://www.w3.org/2000/svg"
       x="0"
       y="0"

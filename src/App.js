@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
 import { FooterComp } from './features/Footer/FooterSlice';
+import { Main } from './features/Main/Main';
 import { NavComp } from './features/Navbar/NavSlice';
 import { chengeSlide, next, prev, selectSlide, Slider } from './features/Slider/Slider';
 
@@ -16,7 +17,9 @@ function App() {
         next={(nextSlide) => {dispatch(next(nextSlide))}} 
         prev={(prevSlide) => dispatch(prev(prevSlide))}
       />
-    
+      <div className='main'>
+        <Main/>
+      </div>
       <div className='footer'> <FooterComp/> </div>
     </div>
   );

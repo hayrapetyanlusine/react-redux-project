@@ -5,18 +5,19 @@
 }
 
 .App {
-  //background-color: rgb(185, 176, 138);
-  height: 700px;
+  font-family: "Cooper Lt BT";
   .nav{
     width: 100%;
     top: 0;
     padding: 10px;
-    background-color: #2F2C2B
+    background-color: #2F2C2B;
+  }
+  .main{
+    background-color: #f1f1f1;
   }
   .footer{
     width: 100%;
     background-color: #2F2C2B;
-    margin-top: 40px;
     color: #fff;
   }
 }

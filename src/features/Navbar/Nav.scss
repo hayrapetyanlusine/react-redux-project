@@ -56,6 +56,7 @@ $color-black: #2c2820;
                 text-decoration: none;
             }
             .drop-down{
+                z-index: 1;
                 display: none;
                 opacity: 0;
                 position: absolute;
@@ -150,6 +151,7 @@ $color-black: #2c2820;
             }
         }
         .menu-items.mobile-menu{
+            z-index: 1;
             transition: 0.5s;
             transform: translate(0px);
         }
