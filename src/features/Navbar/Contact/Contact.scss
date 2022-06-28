@@ -1,0 +1,119 @@
+.contact-container{
+    background-color: #f1f1f1;
+    .contact-backg{
+        height: 400px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+
+        .contact-inner{
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            max-width: 500px;
+            background-color: rgba(232, 245, 240, 0.445);
+
+            h1{
+                font-size: 50px;
+            }
+        }
+    }
+    .info{
+        text-align: center;
+        background-color: #EEE7F1;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .info-inner{
+            max-width: 600px;
+            h1{
+                font-size: 47px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+    .info-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 350px;
+        padding: 15px;
+
+        .info-item{
+            width: 300px;
+            .contact{
+                width: 40px;
+                height: 40px;
+                float: left;
+                margin-right: 20px;
+            }
+            h2{
+                font-size: 22px;
+                line-height: 45px;
+            }
+            p{
+                line-height: 24px;
+                padding-left: 55px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .contact-container{
+        .info-container{
+            .info-item{
+                .contact{
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 5px;
+                }
+                h2{
+                    font-size: 19px;
+                }
+                p{
+                    padding-left: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-container{
+        .contact-backg{
+            .contact-inner{
+                h1{
+                    font-size: 40px;
+                }
+            }
+        }
+        .info{
+            .info-inner{
+                padding: 0 10px;
+                h1{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 17px;
+                }
+            }
+        }
+        .info-container{
+            flex-wrap: wrap;
+            padding: 15px 35px;
+            .info-item{
+                width: 100%;
+                h2{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

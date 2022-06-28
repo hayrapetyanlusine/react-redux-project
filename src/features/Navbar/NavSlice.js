@@ -3,17 +3,18 @@ import { useRef } from 'react';
 import { Basket } from '../Svg';
 import logoImg from'../Images/logo.jpg';
 import { NavSliceItem } from './NavSliceItem';
+import { Link } from 'react-router-dom';
 export {logoImg};
 
 export const initialNav = {
     img: {
         src: logoImg,
-        path: "#"
+        path: "/home"
     },
     menu: [{
         id: Math.random(),
         name: "Home",
-        path: "#"
+        path: "/home"
     }, {
         id: Math.random(),
         name: "Product",
@@ -38,15 +39,15 @@ export const initialNav = {
     }, {
         id: Math.random(),
         name: "History",
-        path: "#"
+        path: "/history"
     }, {
         id: Math.random(),
         name: "Blogs",
-        path: "#"
+        path: "/blogs"
     }, {
         id: Math.random(),
         name: "Contact",
-        path: "#"
+        path: "/contact"
     }],
     basket: 0
 }
@@ -68,9 +69,9 @@ export function NavComp() {
     return (
         <section className="nav-container">
             <div className='logo'>
-                <a href='#'>
+                <Link to={initialNav.img.path}>
                     <img src={initialNav.img.src} alt="logo"/>
-                </a>
+                </Link>
             </div>
             <div className='open-menu' onClick={(e) => {
                 e.preventDefault();

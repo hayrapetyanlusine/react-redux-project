@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import { Down } from '../Svg';
 import { DropDown } from './DropDown';
@@ -23,15 +24,15 @@ export function NavSliceItem({ulRef, initialNav}) {
                                 dropMenuRef.current.classList.toggle("down");
                                 setDown(!down);
                             }}>
-                                <a href='#' className='item-href'>
-                                    {elem.name} 
+                                <Link to='/product' className='item-href'>
+                                    {elem.name}
                                     <span>{down ? <Up/> : <Down/>}</span>
-                                </a>
+                                </Link>
                                 <DropDown initialNav={initialNav}/>
                             </li>
                         )
                     }
-                    return <li className='menu-item' key={elem.id}> <a href='#' className='item-href'>{elem.name}</a></li>
+                    return <li className='menu-item' key={elem.id}> <Link to={elem.path} className='item-href'>{elem.name}</Link></li>
                 }) 
             }
         </ul>
