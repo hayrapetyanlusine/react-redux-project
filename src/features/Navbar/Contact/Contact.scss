@@ -1,20 +1,28 @@
+@mixin backDiv ($color){
+    color: $color;
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+@mixin backDivInner($top, $left, $max-width, $bg-color) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    max-width: $max-width;
+    background-color: $bg-color;
+}
+
 .contact-container{
     background-color: #f1f1f1;
     .contact-backg{
-        height: 400px;
-        width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        position: relative;
+        @include backDiv(black);
 
         .contact-inner{
-            position: absolute;
-            top: 50%;
-            left: 30px;
-            max-width: 500px;
-            background-color: rgba(232, 245, 240, 0.445);
-
+            @include backDivInner(50%, 30px, 500px, rgba(232, 245, 240, 0.445));
             h1{
                 font-size: 50px;
             }

@@ -1,0 +1,149 @@
+@import '../Contact/Contact.scss';
+
+@mixin title($txtAlign, $fSize, $fWeight, $pBtm) {
+    text-align: $txtAlign;
+    font-size: $fSize;
+    font-weight: $fWeight;
+    padding-bottom: $pBtm;
+}
+
+@mixin history($display, $just-content, $al-content, $padding) {
+    display: $display;
+    justify-content: $just-content;
+    align-items: $al-content;
+    padding: $padding;
+}
+
+.history-container{
+    background-color: #f1f1f1;
+    .history-backg{
+        @include backDiv(#fff);
+        .history-inner{
+            @include backDivInner(50%, 40px, 500px, transparent);
+            h1{
+                font-size: 45px;
+            }
+        }
+    }
+    .tradition-container{
+        padding: 40px;
+
+        .trad-title{
+            @include title(center, 50px, normal, 40px);
+        }
+        .tradition{
+            min-height: 300px;
+            max-width: 1400px;
+            line-height: 25px;
+            margin: 0 auto;
+            .img-div{
+                height: 100%;
+                float: left;
+                margin-right: 20px;
+                .trad-img{
+                    width: 100%;
+                }
+            }
+            p{
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .name{
+                font-style: italic;
+                font-size: 25px;
+            }
+            .prof{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+    }
+    .title{
+        @include title(center, 50px, normal, 40px);
+    }
+    #histories{
+        padding: 0 40px;
+        .history, .history1{
+            @include history(flex, space-around, center, 10px 0 80px 0);
+            .description{
+                width: 680px;
+                .his-title{
+                    font-size: 48px;
+                }
+                .his-text{
+                    font-size: 20px;
+                    line-height: 27px;
+                }
+            }
+            .picture{
+                width: 400px;
+                img{
+                    width: 100%;
+                }
+                h2{
+                    text-align: center;
+                }
+            }
+        }
+        .history{
+            .description{
+                text-align: end;
+                margin-right: 20px;
+            }
+        }
+        .history1{
+            .description{
+                order: 2;
+                margin-left: 20px;
+            }
+            .picture{
+                order: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 860px){
+    .history-container{
+        .tradition-container{
+            padding: 20px;
+            .trad-title{
+                font-size: 37px;
+            }
+            .tradition{
+                .img-div{
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
+        }
+        .title{
+            font-size: 37px;
+        }
+        #histories{
+            padding: 0 20px;
+            text-align: center;
+            .history{
+                .description{
+                    order: 2;
+                    text-align: center;
+                }
+                .picture{
+                    order: 1;
+                }
+            }
+            .history, .history1{
+                flex-wrap: wrap;
+                padding-bottom: 40px;
+                .description{
+                    line-height: 35px;
+                    .his-title{
+                        font-size: 28px;
+                    }
+                    .his-text{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
