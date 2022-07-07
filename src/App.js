@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { FooterComp } from './features/Footer/FooterSlice';
-import { Blogs } from './features/Navbar/Blogs';
+import { Blogs } from './features/Navbar/Blogs/Blogs';
 import { Contact } from './features/Navbar/Contact/Contact';
 import { History } from './features/Navbar/History/History';
 import Home from './features/Navbar/Home';
