@@ -65,6 +65,7 @@ export function BasketReducer(state={}, action) {
 
 export function NavComp() {
     const ulRef = useRef();
+    const menuCover = useRef();
 
     return (
         <section className="nav-container">
@@ -76,10 +77,12 @@ export function NavComp() {
             <div className='open-menu' onClick={(e) => {
                 e.preventDefault();
                 ulRef.current.classList.add("mobile-menu");
+                menuCover.current.classList.add("mobile-menu-cover");
             }}>
                 <span></span>
+                <div ref={menuCover}></div>
             </div>
-            <NavSliceItem ulRef={ulRef} initialNav={initialNav}/>
+            <NavSliceItem ulRef={ulRef} menuCover={menuCover} initialNav={initialNav}/>
             <div className='basket'>
                 <Basket/>
             </div>

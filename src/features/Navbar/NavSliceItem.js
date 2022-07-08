@@ -6,7 +6,7 @@ import { DropDown } from './DropDown';
 import { Up } from '../Svg'
 import './Nav.scss';
 
-export function NavSliceItem({ulRef, initialNav}) {
+export function NavSliceItem({ulRef, menuCover, initialNav}) {
     const [down, setDown] = useState(false);
     const dropMenuRef = useRef();
 
@@ -15,6 +15,7 @@ export function NavSliceItem({ulRef, initialNav}) {
             <div className='close-menu' onClick={(e) => {
                 e.preventDefault();
                 ulRef.current.classList.remove("mobile-menu");
+                menuCover.current.classList.remove("mobile-menu-cover");
             }}>Close</div>
             {
                 initialNav.menu.map(elem => {
@@ -32,7 +33,17 @@ export function NavSliceItem({ulRef, initialNav}) {
                             </li>
                         )
                     }
-                    return <li className='menu-item' key={elem.id}> <Link to={elem.path} className='item-href'>{elem.name}</Link></li>
+                    return(
+                        <li className='menu-item' key={elem.id} onClick={(e) => {
+                            e.preventDefault();
+                            ulRef.current.classList.remove("mobile-menu");
+                            menuCover.current.classList.remove("mobile-menu-cover");
+                        }}> 
+                            <Link to={elem.path} className='item-href'>
+                                {elem.name}
+                            </Link>
+                        </li>
+                    )
                 }) 
             }
         </ul>
