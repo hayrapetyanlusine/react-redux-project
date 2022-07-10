@@ -7,11 +7,12 @@ import { Contact } from './features/Navbar/Contact/Contact';
 import { History } from './features/Navbar/History/History';
 import Home from './features/Navbar/Home';
 import { NavComp } from './features/Navbar/NavSlice';
-import { Product } from './features/Navbar/Product/Product';
+import { Product, stateProducts } from './features/Navbar/Product/Product';
 import { selectSlide } from './features/Slider/Slider';
 
 function App() {
   const slide =  useSelector(selectSlide);
+  const products = useSelector(stateProducts);
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +21,7 @@ function App() {
 
       <Routes>
         <Route path="/home" element={<Home slide={slide} dispatch={dispatch}/>}></Route>
-        <Route path="/product" element={<Product />}></Route>
+        <Route path="/product" element={<Product products={products}/>}></Route>
         <Route path="/history" element={<History />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
