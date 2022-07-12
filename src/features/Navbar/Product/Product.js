@@ -82,11 +82,23 @@ export const initialProduct = [{
 ]
 
 export function productReducer(state=[], action) {
-  if(action.type === "") {}
-  return state;
+  const initialState = initialProduct;
+
+  switch(action.type) {
+    case "all" :
+      return initialState;
+    case "dark" :
+      return initialState.filter((product) => product.type === action.payload.dark);
+    case "milk" :
+      return initialState.filter((product) => product.type === action.payload.milk);
+    case "no-sugar" :
+      return initialState.filter((product) => product.type === action.payload.noSugar);
+    default:
+      return state;
+  }
 }
 
-export function Product({products}) {
+export function Product({products, all, allDark, allMilk, allNoSugar}) {
   return (
     <div id='product-container'>
       <div className='product-backg' style={{ backgroundImage: `url(${background})` }}>
@@ -95,12 +107,34 @@ export function Product({products}) {
 
       <h2 className='title'>Our Chocolates</h2>
 
+      <div id='choose-products'>
+        <div className='choose-product' onClick={(e) => { 
+          e.preventDefault();
+          all();
+        }}>All Chocolates</div>
+
+        <div className='choose-product' onClick={(e) => {
+          e.preventDefault();
+          allDark(products);
+        }}>Dark Chocolates</div>
+
+        <div className='choose-product' onClick={(e) => {
+          e.preventDefault();
+          allMilk();
+        }}>Milk Chocolates</div>
+
+        <div className='choose-product' onClick={(e) => {
+          e.preventDefault();
+          allNoSugar();
+        }}>No sugar Chocolates</div>
+      </div>
+
       <div id='products'>
         {
           products.map(product => {
             return(
               <div className='product' key={product.id}>
-                <img src={product.img}></img>
+                <img src={product.img} alt="product"></img>
                 <h2>{product.name}</h2>
                 <p>{product.price}</p>
                 <button>Buy</button>
@@ -115,4 +149,37 @@ export function Product({products}) {
 
 export function stateProducts(state) {
   return state.product;
+}
+
+export function allChock() {
+  return{
+    type: "all"
+  }
+}
+
+export function darkChock() {
+  return{
+    type: "dark",
+    payload: ({
+      dark: "dark"
+    })
+  }
+}
+
+export function milkChock() {
+  return{
+    type: "milk",
+    payload: ({
+      milk: "milk"
+    })
+  }
+}
+
+export function allNoSugar() {
+  return{
+    type: "no-sugar",
+    payload: ({
+      noSugar: "no-sugar"
+    })
+  }
 }

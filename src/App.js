@@ -7,7 +7,7 @@ import { Contact } from './features/Navbar/Contact/Contact';
 import { History } from './features/Navbar/History/History';
 import Home from './features/Navbar/Home';
 import { NavComp } from './features/Navbar/NavSlice';
-import { Product, stateProducts } from './features/Navbar/Product/Product';
+import { allChock, allNoSugar, darkChock, milkChock, Product, stateProducts } from './features/Navbar/Product/Product';
 import { selectSlide } from './features/Slider/Slider';
 
 function App() {
@@ -21,7 +21,12 @@ function App() {
 
       <Routes>
         <Route path="/home" element={<Home slide={slide} dispatch={dispatch}/>}></Route>
-        <Route path="/product" element={<Product products={products}/>}></Route>
+        <Route path="/product" element={<Product products={products}
+          all={() => dispatch(allChock())}
+          allDark={() => dispatch(darkChock())}
+          allMilk={() => dispatch(milkChock())}
+          allNoSugar={() => dispatch(allNoSugar())}
+        />}></Route>
         <Route path="/history" element={<History />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
