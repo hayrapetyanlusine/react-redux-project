@@ -1,6 +1,7 @@
 import React from 'react'
 import './Product.scss'
 import background from '../../Images/chock-header.jpg'
+import { ScrollUp } from '../../ScrollUp/ScrollUp';
 
 export const initialProduct = [{
     name: "Ferrero Rocher Balls",
@@ -101,6 +102,7 @@ export function productReducer(state=[], action) {
 export function Product({products, all, allDark, allMilk, allNoSugar}) {
   return (
     <div id='product-container'>
+      <ScrollUp/>
       <div className='product-backg' style={{ backgroundImage: `url(${background})` }}>
         <h3>Chocolates</h3>
       </div>

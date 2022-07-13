@@ -1,0 +1,17 @@
+.scroll-up {
+    position: fixed;
+    fill: #bf624c;
+    right: 20px;
+    bottom: 100px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: none;
+    z-index: 3;
+    border: 1px solid transparent;
+    transition: all .2s;
+}
+
+.scroll-up.showBtn{
+    display: block;
+}

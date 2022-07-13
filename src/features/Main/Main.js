@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollUp } from '../ScrollUp/ScrollUp';
 import './Main.scss';
 
 const mainImg = {
@@ -41,7 +42,7 @@ const mainImg = {
 export function Main() {
   return (
     <section className='main-container'>
-        <div className='btn-up'></div>
+        <ScrollUp/>
         <h1>EXPLORE OUR CHOCOLATE <br/> PRODUCTS</h1>
         <div className='div-product'>
             {

@@ -2,10 +2,12 @@ import React from 'react'
 import './Contact.scss'
 import { Location, Phone, Time } from '../../Svg'
 import background from "../../Images/bc-contact.jpg";
+import { ScrollUp } from '../../ScrollUp/ScrollUp';
 
 export function Contact() {
   return (
     <div className='contact-container'>
+      <ScrollUp/>
       <div className='contact-backg' style={{ backgroundImage: `url(${background})` }} >
         <div className='contact-inner'>
           <p>GET IN TOUCH</p>

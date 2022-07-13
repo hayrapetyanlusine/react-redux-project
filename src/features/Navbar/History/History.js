@@ -1,6 +1,7 @@
 import React from 'react'
 import './History.scss';
 import background from "../../Images/bc-history.jpg";
+import { ScrollUp } from '../../ScrollUp/ScrollUp';
 
 const history = [{
   id: 1,
@@ -49,6 +50,7 @@ const history = [{
 export function History() {
   return (
     <div className='history-container'>
+      <ScrollUp/>
       <div className='history-backg' style={{ backgroundImage: `url(${background})` }} >
         <div className='history-inner'>
           <p>FAMILY TRADITION</p>

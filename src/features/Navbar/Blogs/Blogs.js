@@ -4,10 +4,12 @@ import background from '../../Images/bc-blogs.jpg'
 import img from '../../Images/blogs-1.png'
 import choc1 from '../../Images/blogs-div.png'
 import choc2 from '../../Images/blogs-div2.png'
+import { ScrollUp } from '../../ScrollUp/ScrollUp'
 
 export function Blogs() {
   return (
     <div className='blog-container'>
+      <ScrollUp/>
       <div className='history-backg' style={{ backgroundImage: `url(${background})` }} >
         <div className='history-inner'>
           <p>GET IN TOUCH</p>
