@@ -8,7 +8,7 @@ export function DropDown({initialNav}) {
             {
                 filteredMenu[0].submenu.map(item => {
                     return(
-                        <li key={item.id}><a href='#'>{item.name}</a></li> 
+                        <li key={item.id}><a href={item.path}>{item.name}</a></li> 
                     )
                 })
             }

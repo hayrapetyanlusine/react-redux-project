@@ -18,22 +18,22 @@ export const initialNav = {
     }, {
         id: Math.random(),
         name: "Product",
-        path: "#",
+        path: "/product",
         submenu: [
             {
                 name: "Dark Chocolate",
                 id: Math.random(),
-                path: "#"
+                path: "/product"
             },
             {
                 name: "Milk Chocolate",
                 id: Math.random(),
-                path: "#"
+                path: "/product"
             },
             {
                 name: "No Sugar Chocolate",
                 id: Math.random(),
-                path: "#"
+                path: "product"
             }
         ]
     }, {

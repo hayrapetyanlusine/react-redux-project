@@ -24,6 +24,8 @@ export function NavSliceItem({ulRef, menuCover, initialNav}) {
                             <li id='drop' className='menu-item' key={elem.id} ref={dropMenuRef} onClick={() => {
                                 dropMenuRef.current.classList.toggle("down");
                                 setDown(!down);
+                                ulRef.current.classList.remove("mobile-menu");
+                                menuCover.current.classList.remove("mobile-menu-cover");
                             }}>
                                 <Link to='/product' className='item-href'>
                                     {elem.name}

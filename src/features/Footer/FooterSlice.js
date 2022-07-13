@@ -1,12 +1,10 @@
 import React from 'react';
 import './Footer.scss';
 import logoImg from'../Images/logo.jpg';
+import { Link } from 'react-router-dom';
 export {logoImg};
 
 export function FooterReducer(state={}, action) {
-  if(action.payload === "") {
-
-  }
   return state;
 }
 
@@ -17,22 +15,22 @@ export const initialFooter = {
       {
         item: "About us",
         id: Math.random(),
-        href: "home page href"
+        href: "/home"
       },
       {
         item: "History",
         id: Math.random(),
-        href: ""
+        href: "/history"
       },
       {
         item: "Blogs",
         id: Math.random(),
-        href: ""
+        href: "/blogs"
       },
       {
         item: "Contact",
         id: Math.random(),
-        href: ""
+        href: "/contact"
       }
     ]
   },
@@ -56,7 +54,11 @@ export function FooterComp() {
               <h4>{initialFooter.info.name}</h4>
               {
                 initialFooter.info.content.map(elem => {
-                  return <li key={elem.id} ><a>{elem.item}</a></li>
+                  return <li key={elem.id}>
+                    <Link to={elem.href} onClick={() => {
+                       window.scrollTo({top: 0})
+                    }}>{elem.item}</Link>
+                  </li>
                 })
               }
           </div>
