@@ -87,10 +87,27 @@ $color-black: #2c2820;
     }
     .basket{
         width: 40px;
+        cursor: pointer;
+        position: relative;
         .basket-svg{
             fill: $color-white;
             width: 35px;
             height: 35px;
+        }
+        .basket-product{
+            position: absolute;
+            top: -7px;
+            right: 0;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            width: 25px;
+            height: 25px;
+            line-height: 28px;
+            background-color: #CD2004;
+            color: $color-white;
+            border-radius: 50%;
+            transition: background-color .3s;
         }
     }
     .menu-item.down{

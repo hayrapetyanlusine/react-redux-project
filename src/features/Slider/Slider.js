@@ -2,13 +2,10 @@ import './Slider.scss';
 import slide1 from '../Images/slider1.png';
 import slide2 from '../Images/slider2.png';
 import slide3 from '../Images/slider3.png';
-import { useRef } from 'react';
 export {slide1, slide2, slide3};
 
 
-export function Slider({slide, change, next, prev}) {
-    const wrapperRef = useRef("");
-
+export function Slider({wrapperRef, slide, next, prev}) {
     return(
         <>
         <div className="slider-container" >
@@ -16,8 +13,7 @@ export function Slider({slide, change, next, prev}) {
                 {
                     slide.map((el) => {
                        return( 
-                           <div className="slide" style={{backgroundImage: `url(${el.img})`}} key={el.id}
-                            onClick={() => change(el)}>
+                           <div className="slide" style={{backgroundImage: `url(${el.img})`}} key={el.id}>
                                <h1>{el.title}</h1>
                                <p>{el.text}</p>
                            </div>
@@ -25,8 +21,8 @@ export function Slider({slide, change, next, prev}) {
                     })
                 }
             </div>
-            <div className='prev' onClick={() => {prev(wrapperRef)}}>Prev</div>
-            <div className='next' onClick={() => {next(wrapperRef)}}>Next</div>
+            <div className='prev' onClick={() => {prev(wrapperRef)}}> {"<"} </div>
+            <div className='next' onClick={() => {next(wrapperRef)}}> {">"} </div>
         </div>
         
         </>
@@ -60,10 +56,7 @@ export const initialSlider = [
 let activeSlideIndex = 0;
 
 export function sliderReducer(state=[], action) {
-    if(action.type === "change") {
-        
-
-    } else if(action.type === "next") {
+    if(action.type === "next") {
         const width = action.payload.next.current.clientWidth;
         
         if(activeSlideIndex <= state.length) {
@@ -77,18 +70,14 @@ export function sliderReducer(state=[], action) {
     } else if(action.type === "prev") {
         const width = action.payload.prev.current.clientWidth;
 
-        if(activeSlideIndex <= state.length) {
-            console.log(`-${1 * width / state.length-1}px`)
-            action.payload.prev.current.style.transform = `-${1 * width / state.length-1}px`;
-            
-        }
         if(activeSlideIndex > 0 ) {
             activeSlideIndex--;
             action.payload.prev.current.style.transform = 
             `translateX(${activeSlideIndex * width / state.length}px)`
-            
+            if(activeSlideIndex === state.length-2) {
+                action.payload.prev.current.style.transform = `translateX(-${width / state.length-1}px)`;
+            }
         }
-        
     }
     return state;
 }
@@ -113,13 +102,4 @@ export function prev(prev) {
 
 export function selectSlide(state) {
     return state.slider;
-}
-
-export function chengeSlide(slide) {
-    return{
-        type: "change",
-        payload: ({
-            slide: slide
-        })
-    }
 }

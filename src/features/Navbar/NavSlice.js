@@ -49,7 +49,7 @@ export const initialNav = {
         name: "Contact",
         path: "/contact"
     }],
-    basket: 0
+    basket: 0,
 }
 
 export function SelectName(state) {
@@ -84,6 +84,7 @@ export function NavComp() {
             </div>
             <NavSliceItem ulRef={ulRef} menuCover={menuCover} initialNav={initialNav}/>
             <div className='basket'>
+                <span className='basket-product'>{0}</span>
                 <Basket/>
             </div>
         </section>
