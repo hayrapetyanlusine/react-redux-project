@@ -4,6 +4,7 @@ import { Basket } from '../Svg';
 import logoImg from'../Images/logo.jpg';
 import { NavSliceItem } from './NavSliceItem';
 import { Link } from 'react-router-dom';
+import { BasketProduct } from './BasketProduct/BasketProduct';
 export {logoImg};
 
 export const initialNav = {
@@ -63,7 +64,7 @@ export function BasketReducer(state={}, action) {
     return state;
 }
 
-export function NavComp() {
+export function NavComp({productRef}) {
     const ulRef = useRef();
     const menuCover = useRef();
 
@@ -83,10 +84,14 @@ export function NavComp() {
                 <div ref={menuCover}></div>
             </div>
             <NavSliceItem ulRef={ulRef} menuCover={menuCover} initialNav={initialNav}/>
-            <div className='basket'>
+            <div className='basket' onClick={(e) => {
+                e.preventDefault();
+                productRef.current.showModal();
+            }}>
                 <span className='basket-product'>{0}</span>
                 <Basket/>
             </div>
+            <BasketProduct productRef={productRef}></BasketProduct>
         </section>
     )
 }

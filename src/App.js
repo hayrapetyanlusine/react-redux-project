@@ -15,6 +15,7 @@ function App() {
   const slide =  useSelector(selectSlide);
   const products = useSelector(stateProducts);
   const wrapperRef = useRef("");
+  const basketProductRef = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className='nav'> <NavComp /> </div>
+      <div className='nav'> <NavComp productRef={basketProductRef}/> </div>
 
       <Routes>
         <Route exact path="/home" element={<Home slide={slide} wrapperRef={wrapperRef} dispatch={dispatch}/>}></Route>
